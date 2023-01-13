@@ -21,7 +21,7 @@ Bootstrap(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lotsofblog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://c22029324:CherieC2022@csmysql.cs.cf.ac.uk:3306/c22029324_flask_lab_test_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
