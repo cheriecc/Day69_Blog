@@ -52,7 +52,7 @@
             </div>
 
                 {{ ckeditor.load() }}
-                {{ ckeditor.config(name='comment') }}
+                {{ ckeditor.config(name='comment', language='en') }}
                 {{ wtf.quick_form(box, novalidate=True, button_map={"submit": "primary"}) }}
                 
           </div>
