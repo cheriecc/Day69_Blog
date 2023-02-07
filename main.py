@@ -5,7 +5,6 @@ from flask_ckeditor import CKEditor
 from flask_gravatar import Gravatar
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-import sqlalchemy.dialects.sqlite
 from flask_wtf.csrf import CSRFProtect
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -33,7 +32,7 @@ mail = Mail(app)
 
 
 # Connect to DB (if DB exists)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('MYSQL_PATH', 'sqlite:///blog.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('MYSQL_PATH')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
