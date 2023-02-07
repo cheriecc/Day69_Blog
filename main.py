@@ -19,7 +19,6 @@ from flask_mail import Mail, Message
 # Create APP
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('START_KEY')
-app.config['SECRET_KEY'] = os.environ.get('START_KEY')
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
