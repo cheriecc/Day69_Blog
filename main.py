@@ -329,3 +329,7 @@ def reset_on(token):
         flash('Your password has been changed successfully!', 'success-msg')
         return redirect(url_for('home'))
     return render_template("change_pw.html", form=reset_pw_form, user=reset_user)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
