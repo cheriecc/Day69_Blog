@@ -1,64 +1,67 @@
 {% import "bootstrap/wtf.html" as wtf %}
-{% include "header.html" %}
+{% include"header.html" %}
 
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{{post.img_url}}')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-heading">
-            <h1>{{post.title}}</h1>
-            <h2 class="subheading">{{post.subtitle}}</h2>
-            <span class="meta">Posted by
-              <a href="#">{{post.author.name}}</a>
-              on {{post.date}}</span>
-          </div>
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ post.img_url }}')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>{{ post.title }}</h1>
+          <span class="subheading">{{ post.subtitle }}</span>
+          <p>Posted by {{ post.author.name }} on {{ post.date }}</p>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- Post Content -->
-  <article>
+
+<!--Post Content-->
+<article>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            {{ post.body|safe }}
-          <hr>
-            {% if current_user.id == 1: %}
-            <div class="clearfix">
-            <a class="btn btn-primary float-right" href="{{url_for('edit_post', post_id=post.id)}}">Edit Post</a>
-            </div>
-            {% endif %}
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
 
+                {{ post.body|safe }}
+                <hr>
+                {% if current_user.id == 1: %}
+                <div class="clearfix">
+                    <a class="btn btn-primary float-right" href="{{ url_for('edit', post_id=post.id) }}">Edit Post</a>
+                </div>
+                {% endif %}
 
+                <br>
 
-<!--           Comments Area -->
-          <div class="col-lg-8 col-md-10 mx-auto comment">
-            {% for comment in post.comments: %}   
-              <ul class="commentList">             
-                <li>
-                    <div class="commenterImage">
-                      <img src="{{ comment.commenter.email | gravatar }}"/>
-                    </div>
-                    <div class="commentText">
-                    {{ comment.text|safe }}
-                    <span class="date sub-text">{{comment.commenter.name}}</span>
-                    </div>
-                </li>
-              </ul>
-            {% endfor%}
-            </div>
+                <!--Comments-->
+                <ul class="comment-list">
+                    {% for comment in post.comments: %}
+                    <li>
+                        <div class="comment-image">
+                            <img src="{{ comment.commenter.email|gravatar }}" alt="profile image">
+                        </div>
+                        <div class="comment-text">
+                            {{ comment.text|safe }}
+                            <span class="date sub-text">{{ comment.commenter.name }}</span>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
 
+                <br>
+                <!--comment box-->
+
+                <p class="error-msg" style="font-size: 15px;">kindly note: you can browse this blog without logging in, however, you need to log on to leave your comment.</p>
                 {{ ckeditor.load() }}
-                {{ ckeditor.config(name='comment', language='en') }}
-                {{ wtf.quick_form(box, novalidate=True, button_map={"submit": "primary"}) }}
-                
-          </div>
-      </div>
-    </div>
-  </article>
+                {{ ckeditor.config(name='comment') }}
+                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
 
-  <hr>
-{% include "footer.html" %}
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+{% include"footer.html" %}

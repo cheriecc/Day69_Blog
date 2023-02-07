@@ -1,31 +1,87 @@
-{% include "header.html" %}
+{% include"header.html" %}
 
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/about-bg.jpg')}})">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
-            <h1>About Me</h1>
-            <span class="subheading">This is what I do.</span>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url({{ url_for('static', filename='img/bg-img-about.jpg') }})">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>About Me</h1>
+          <span class="subheading">Hi, This is Cherie.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!--About Me-->
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="container-fluid carousel-item active">
+      <div class="carousel-display">
+        <img src="{{ url_for('static', filename='img/my_profile.png') }}" class="profile" alt="a photo">
+        <p class="carousel-text">I am currently a student majoring computing at Cardiff University</p>
+        <p>,</p>
+        <p class="carousel-text">I have a cute dog 🐕 named sweet dumpling</p>
+        <p>,</p>
+        <p class="carousel-text">I like making milk tea and baking 🍰</p>
+        </div>
+    </div>
+    <div class="container-fluid carousel-item">
+      <div class="carousel-display">
+        <img src="{{ url_for('static', filename='img/my_auditor.png') }}" class="profile" alt="programming photo">
+        <p>I was an auditor in PwC and worked for clients from FMCG, real estate and technology industries</p>
+        <p>,</p>
+        <p>I'm familiar with International Financial Reporting Standards(IFRS) as well as HKFRS, passed Chartered Financial Analyst(CFA) level II at 2019</p>
+        <p>,</p>
+        <p>I used to work as product manager with digital team to develop a toolkit to compute lease liabilities, and got top ratings in annual performance review for two consecutive years</p>
+      </div>
+    </div>
+    <div class="container-fluid carousel-item">
+      <div class="carousel-display">
+        <img src="{{ url_for('static', filename='img/my_programmer.png') }}" class="profile" alt="programming photo">
+        <p>I am a future Web developer💪</p>
+        <h5>Skills and tech label: </h5>
+        <button type="button" class="btn btn-outline-secondary card-link" disabled>Javascript, Python</button>
+        <button type="button" class="btn btn-outline-secondary card-link" disabled>　 React ,  Flask 　</button>
+        <h5>Recent projects:</h5>
+        <div class="row">
+          <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Rain Alert</h5>
+                <p class="card-text">check the weather in next 12 hours and send a rain alert</p>
+                <a href="https://github.com/cheriecc/Day35_RainAlert" class="btn btn-primary card-link">View the repo</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Movie List</h5>
+                <p class="card-text">build a personal website to mark and rate your favourite movies</p>
+                <a href="https://github.com/cheriecc/Day64_MovieList" class="btn btn-primary card-link">View the repo</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </header>
-
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
-      </div>
-    </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
-  <hr>
-
-  {% include "footer.html" %}
+{% include"footer.html" %}
