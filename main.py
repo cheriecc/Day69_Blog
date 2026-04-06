@@ -15,6 +15,23 @@ import jwt
 from time import time
 from flask_mail import Mail, Message
 
+from dotenv import load_dotenv
+load_dotenv()
+
+
+from urllib.parse import urlencode
+from hashlib import sha256
+
+def gravatar_url(email, size=100, rating='g', default='retro', force_default=False):
+    hash_value = sha256(email.lower().encode('utf-8')).hexdigest()
+    query_params = urlencode({
+        'd': default,
+        's': str(size),
+        'r': rating,
+        'f': force_default
+    })
+    return f"https://www.gravatar.com/avatar/{hash_value}?{query_params}"
+
 
 # Create APP
 app = Flask(__name__)
@@ -27,6 +44,7 @@ app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASSWORD')
 Bootstrap(app)
 CKEditor(app)
 # gravatar = Gravatar(app, size=100, rating='g', default='retro', force_lower=False, use_ssl=False, base_url=None)
+app.jinja_env.filters['gravatar'] = gravatar_url
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 mail = Mail(app)
