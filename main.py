@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, flash, abort, send_from_directory
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
-from flask_gravatar import Gravatar
+# from flask_gravatar import Gravatar
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 from flask_wtf.csrf import CSRFProtect
@@ -15,6 +15,7 @@ import jwt
 from time import time
 from flask_mail import Mail, Message
 
+
 # Create APP
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('START_KEY')
@@ -25,7 +26,7 @@ app.config['MAIL_USERNAME'] = os.environ.get('MY_EMAIL')
 app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASSWORD')
 Bootstrap(app)
 CKEditor(app)
-gravatar = Gravatar(app, size=100, rating='g', default='retro', force_lower=False, use_ssl=False, base_url=None)
+# gravatar = Gravatar(app, size=100, rating='g', default='retro', force_lower=False, use_ssl=False, base_url=None)
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 mail = Mail(app)
